@@ -13,7 +13,6 @@
     :license: BSD, see LICENSE for more details.
 """
 import re
-from sanic.response import json_dumps
 
 
 class UserAgentParser:

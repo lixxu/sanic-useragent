@@ -241,11 +241,10 @@ class UserAgent:
     __bool__ = __nonzero__
 
     def __repr__(self):
-        return '<%s %r/%s>' % (
-            self.__class__.__name__,
-            self.browser,
-            self.version
-        )
+        return '<{} {!r}/{}>'.format(self.__class__.__name__,
+                                     self.browser,
+                                     self.version
+                                     )
 
 
 class SanicUserAgent:
@@ -256,6 +255,6 @@ class SanicUserAgent:
         if not default_locale:
             default_locale = app.config.get('DEFAULT_LOCALE') or cls.__locale__
 
-        @app.middleware
+        @app.middleware('request')
         async def add_useragent(request):
             request['user_agent'] = UserAgent(request.headers, default_locale)

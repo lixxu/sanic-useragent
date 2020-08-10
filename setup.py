@@ -7,7 +7,7 @@ from setuptools import setup
 
 setup(
     name='sanic-useragent',
-    version='0.1.2',
+    version='0.1.3',
     url='https://github.com/lixxu/sanic-useragent',
     license='BSD',
     author='Lix Xu',
@@ -16,6 +16,9 @@ setup(
     long_description=__doc__,
     packages=['sanic_useragent'],
     zip_safe=False,
+    install_requires=[
+   'sanic>=20.6',
+]
     platforms='any',
     classifiers=[
         'Environment :: Web Environment',

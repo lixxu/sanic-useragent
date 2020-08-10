@@ -1,9 +1,12 @@
 # sanic-useragent
-Add `user_agent` to request for Sanic.
+Add `user_agent` to request `ctx` for Sanic.
 
 ## Installation
 
-`pip install sanic-useragent`
+```bash
+pip install git+https://github.com/pawelkoston/sanic-useragent.git
+```
+
 
 ## Usage
 
@@ -12,7 +15,7 @@ Add `user_agent` to request for Sanic.
 # -*- coding: utf-8 -*-
 
 from sanic import Sanic
-from sani.response import json
+from sanic.response import json
 from sanic_useragent import SanicUserAgent
 
 app = Sanic(__name__)
@@ -25,7 +28,7 @@ SanicUserAgent.init_app(app)
 
 @app.route('/')
 async def index(request):
-    return json(request['user_agent'].to_dict())
+    return json(request.ctx.user_agent.to_dict())
 
 
 if __name__ == '__main__':

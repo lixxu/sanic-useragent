@@ -18,7 +18,7 @@ setup(
     zip_safe=False,
     install_requires=[
    'sanic>=20.6',
-]
+],
     platforms='any',
     classifiers=[
         'Environment :: Web Environment',

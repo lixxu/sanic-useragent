@@ -60,7 +60,7 @@ class UserAgentParser:
         ('seamonkey|mozilla', 'seamonkey')
     )
 
-    _browser_version_re = r'(?:%s)[/\sa-z(]*(\d+[.\da-z]+)?(?i)'
+    _browser_version_re = r'(?:%s)[/\sa-z(]*(\d+[.\da-z]+)?'
     _language_re = re.compile(
         r'(?:;\s*|\s+)(\b\w{2}\b(?:-\b\w{2}\b)?)\s*;|'
         r'(?:\(|\[|;)\s*(\b\w{2}\b(?:-\b\w{2}\b)?)\s*(?:\]|\)|;)'
@@ -68,7 +68,7 @@ class UserAgentParser:
 
     def __init__(self):
         self.platforms = [(b, re.compile(a, re.I)) for a, b in self.platforms]
-        self.browsers = [(b, re.compile(self._browser_version_re % a))
+        self.browsers = [(b, re.compile(self._browser_version_re % a, re.I))
                          for a, b in self.browsers]
 
     def __call__(self, headers):

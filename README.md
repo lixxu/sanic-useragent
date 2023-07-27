@@ -1,4 +1,5 @@
 # sanic-useragent
+
 Add `user_agent` to request for Sanic.
 
 ## Installation
